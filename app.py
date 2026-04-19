@@ -57,8 +57,7 @@ st.markdown("""
     .stButton>button:hover { background-color: #003d82; color: white; }
     div[data-baseweb="select"] > div { background-color: #f8f9fa; }
     </style>
-    """, unsafe_allow_stdio=True)
-
+    """, unsafe_allow_html=True)
 if 'logado' not in st.session_state:
     st.session_state.logado = False
     st.session_state.perfil = None
