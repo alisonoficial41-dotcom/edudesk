@@ -30,14 +30,15 @@ if 'logado' not in st.session_state
     st.session_state.logado = False
     st.session_state.perfil = None
 
-if not st.session_state.logado
-    st.title(🔐 EduDesk - Portal de Acesso)
-    tab1, tab2 = st.tabs([Login, Cadastrar Novo Usuário])
+if not st.session_state.logado:
+    st.title("🔐 EduDesk - Portal de Acesso")
     
-    with tab1
-        user = st.text_input(Usuário)
-        pw = st.text_input(Senha, type=password)
-        if st.button(Entrar)
+    tab1, tab2 = st.tabs(["Login", "Cadastrar Novo Usuário"])
+    
+    with tab1:
+        user = st.text_input("Usuário", key="login_user")
+        pw = st.text_input("Senha", type="password", key="login_pw")
+        if st.button("Entrar"):
             c.execute('SELECT senha, perfil FROM usuarios WHERE usuario = ', (user,))
             res = c.fetchone()
             if res and verificar_senha(pw, res[0])
