@@ -50,17 +50,12 @@ def gerar_pdf_plano(dados):
 # --- CONFIGURAÇÃO DA PÁGINA (FUNDO BRANCO) ---
 st.set_page_config(page_title="EduDesk - Pascoal Possidônio", layout="wide", page_icon="🏫")
 
-st.markdown("""
-    <style>
+st.markdown(""" <style>
     .stButton>button { width: 100%; border-radius: 8px; background-color: #0056b3; color: white; border: none; }
     .stButton>button:hover { background-color: #003d82; color: white; }
+    div[data-baseweb="select"] > div { background-color: #f8f9fa; }
     </style>
-    """, unsafe_allow_html=True)
-    """, unsafe_allow_html=True)
-if 'logado' not in st.session_state:
-    st.session_state.logado = False
-    st.session_state.perfil = None
-    st.session_state.usuario = None
+""", unsafe_allow_html=True)
 
 # --- TELA DE LOGIN ---
 if not st.session_state.logado:
