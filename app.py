@@ -52,11 +52,10 @@ st.set_page_config(page_title="EduDesk - Pascoal Possidônio", layout="wide", pa
 
 st.markdown("""
     <style>
-    .stApp { background-color: #ffffff; color: #1e1e1e; }
     .stButton>button { width: 100%; border-radius: 8px; background-color: #0056b3; color: white; border: none; }
     .stButton>button:hover { background-color: #003d82; color: white; }
-    div[data-baseweb="select"] > div { background-color: #f8f9fa; }
     </style>
+    """, unsafe_allow_html=True)
     """, unsafe_allow_html=True)
 if 'logado' not in st.session_state:
     st.session_state.logado = False
