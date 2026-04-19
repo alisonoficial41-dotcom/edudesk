@@ -76,9 +76,10 @@ if not st.session_state.logado:
         st.subheader("Escola Municipal Pascoal Possidônio Gomes")
     
     aba1, aba2 = st.tabs(["🔐 Entrar", "📝 Cadastro de Servidor"])
+    
     with aba1:
-        u = st.text_input("Usuário")
-        p = st.text_input("Senha", type="password")
+        u = st.text_input("Usuário", key="login_usuario")
+        p = st.text_input("Senha", type="password", key="login_senha")
         if st.button("Acessar Sistema"):
             c.execute('SELECT senha, perfil FROM usuarios WHERE usuario = ?', (u,))
             res = c.fetchone()
@@ -87,11 +88,12 @@ if not st.session_state.logado:
                 st.rerun()
             else:
                 st.error("Credenciais incorretas.")
+                
     with aba2:
-        n_nome = st.text_input("Nome Completo")
-        n_user = st.text_input("Login")
-        n_pw = st.text_input("Senha", type="password")
-        n_perf = st.radio("Cargo", ["Professor", "Gestor"])
+        n_nome = st.text_input("Nome Completo", key="cad_nome")
+        n_user = st.text_input("Login", key="cad_login")
+        n_pw = st.text_input("Senha", type="password", key="cad_senha")
+        n_perf = st.radio("Cargo", ["Professor", "Gestor"], key="cad_cargo")
         if st.button("Realizar Cadastro"):
             try:
                 c.execute('INSERT INTO usuarios VALUES(?,?,?,?)', (n_nome, n_user, criar_hash(n_pw), n_perf))
